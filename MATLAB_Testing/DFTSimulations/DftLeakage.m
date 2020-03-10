@@ -14,14 +14,14 @@ f02 = fc(1,1:size(t02,2));
 f5 = fc(1,1:size(t5,2));
 
 figure;
-subplot(2,1,1);
+subplot(2,2,1);
 plot(t02,f02);
-subplot(2,1,2);
+subplot(2,2,2);
 plot(linspace(-Fs/2,Fs/2,size(f02,2)), abs(fftshift(fft(f02))));
-% subplot(2,2,3);
-% plot(t5,f5);
-% subplot(2,2,4);
-% plot(linspace(-Fs/2,Fs/2,size(f5,2)), abs(fftshift(fft(f5))));
+subplot(2,2,3);
+plot(t5,f5);
+subplot(2,2,4);
+plot(linspace(-Fs/2,Fs/2,size(f5,2)), abs(fftshift(fft(f5))));
 
 rep = 50;
 fnew = repmat(f02,[1 ,rep]);
