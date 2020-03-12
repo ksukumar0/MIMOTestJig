@@ -9,5 +9,6 @@ b2 = fir2(60,f,m, hann(61));
 [h2,w2] = freqz(b2,1,256); % Frequency response of filter
 
 plot(f,m,w/pi,abs(h),w1/pi,abs(h1), w2/pi, abs(h2))
-legend('Ideal','fir2 with 30 taps','fir2 with 60 taps')
+legend('Ideal','fir2 with 30 taps','fir2 with 60 taps rect Window','fir2 with 60 taps Hanning Window', ...
+    'Location','southwest');
 title('Comparison of Frequency Response Magnitudes')
