@@ -30,10 +30,10 @@ if isempty(ver('lte'))
 end
 
 % Generate LTE signal
-rmc = lteRMCDL('R.14');     % Base RMC configuration
-rmc.CellRefP = 4;           % 2 transmit antennas
+rmc = lteRMCDL('R.9');     % Base RMC configuration
+rmc.CellRefP = 1;           % 2 transmit antennas
 rmc.NDLRB = 100;            % No. of Resource Blocks
-rmc.PDSCH.NLayers = 4;      % 2 layers 
+rmc.PDSCH.NLayers = 1;      % 2 layers 
 rmc.NCellID = 64;           % Cell identity
 rmc.NFrame = 100;           % Initial frame number
 rmc.TotSubframes = 2*10;    % Generate 8 frames. 10 subframes per frame
