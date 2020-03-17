@@ -49,12 +49,14 @@ rmc.SIB.Data = randi([0 1],144,1); % Use random bits in SIB data field. This is 
 trData = [1;0;0;1];
 [eNodeBOutput,txGrid,rmc] = lteRMCDLTool(rmc,trData);
 
-%% Plot Power Spectrum of Two-Channel LTE Signal
+% %% Plot Power Spectrum of Two-Channel LTE Signal
+% 
+% spectrumAnalyzer = dsp.SpectrumAnalyzer;
+% spectrumAnalyzer.SampleRate = rmc.SamplingRate;  % 1.92e6 MHz for 'R.12'
+% spectrumAnalyzer.Title = 'Power Spectrum of Two-Channel LTE Signal';
+% spectrumAnalyzer.ShowLegend = true;
+% spectrumAnalyzer.ChannelNames = {'Antenna 1', 'Antenna 2'};
+% step(spectrumAnalyzer, eNodeBOutput);
+% release(spectrumAnalyzer);
 
-spectrumAnalyzer = dsp.SpectrumAnalyzer;
-spectrumAnalyzer.SampleRate = rmc.SamplingRate;  % 1.92e6 MHz for 'R.12'
-spectrumAnalyzer.Title = 'Power Spectrum of Two-Channel LTE Signal';
-spectrumAnalyzer.ShowLegend = true;
-spectrumAnalyzer.ChannelNames = {'Antenna 1', 'Antenna 2'};
-step(spectrumAnalyzer, eNodeBOutput);
-release(spectrumAnalyzer);
+save txWaveform.mat eNodeBOutput txGrid rmc;
