@@ -59,4 +59,12 @@ trData = [1;0;0;1];
 % step(spectrumAnalyzer, eNodeBOutput);
 % release(spectrumAnalyzer);
 
-save txWaveform.mat eNodeBOutput txGrid rmc;
+% save txWaveform.mat eNodeBOutput txGrid rmc;
+
+retval = writeBinary('LTESignal.bin',eNodeBOutput);
+
+if(retval == 0)
+    sprintf("Writing to file sucessful\n");
+else
+    sprintf("Error: %d Writing to file failed\n",retval);
+end
