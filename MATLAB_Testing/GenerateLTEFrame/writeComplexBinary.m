@@ -3,7 +3,7 @@
 % fwrite(fileID,magic(4),'double');
 % fclose(fileID);
 
-function ret = write__Binary(filename, complex_vector)
+function ret = writeComplexBinary(filename, complex_vector)
 
   %% usage: write_complex_binary (filename, complex_vector)
   %%

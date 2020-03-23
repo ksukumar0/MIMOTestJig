@@ -24,6 +24,8 @@
 
 %% Generate LTE Signal
 
+function [eNodeBOutput, Fs] = Generate_LTE_Frame_1TxAnt()
+
 % Check for presence of LTE Toolbox
 if isempty(ver('lte'))
     error(message('sdru:examples:NeedLST'));
@@ -49,8 +51,11 @@ rmc.SIB.Data = randi([0 1],144,1); % Use random bits in SIB data field. This is 
 trData = [1;0;0;1];
 [eNodeBOutput,txGrid,rmc] = lteRMCDLTool(rmc,trData);
 
+Fs = rmc.SamplingRate;
+% NoOfSamples = size(eNodeBOutput,1);
+
 % %% Plot Power Spectrum of Two-Channel LTE Signal
-% 
+
 % spectrumAnalyzer = dsp.SpectrumAnalyzer;
 % spectrumAnalyzer.SampleRate = rmc.SamplingRate;  % 1.92e6 MHz for 'R.12'
 % spectrumAnalyzer.Title = 'Power Spectrum of Two-Channel LTE Signal';
@@ -61,10 +66,10 @@ trData = [1;0;0;1];
 
 % save txWaveform.mat eNodeBOutput txGrid rmc;
 
-retval = writeBinary('LTESignal.bin',eNodeBOutput);
-
-if(retval == 0)
-    sprintf("Writing to file sucessful\n");
-else
-    sprintf("Error: %d Writing to file failed\n",retval);
-end
+% retval = writeBinary('LTESignal.bin',eNodeBOutput);
+% 
+% if(retval == 0)
+%     sprintf("Writing to file sucessful\n");
+% else
+%     sprintf("Error: %d Writing to file failed\n",retval);
+% end
