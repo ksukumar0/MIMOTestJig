@@ -53,9 +53,9 @@ trData = [1;0;0;1];
 
 Fs = rmc.SamplingRate;
 % NoOfSamples = size(eNodeBOutput,1);
-
+% 
 % %% Plot Power Spectrum of Two-Channel LTE Signal
-
+% 
 % spectrumAnalyzer = dsp.SpectrumAnalyzer;
 % spectrumAnalyzer.SampleRate = rmc.SamplingRate;  % 1.92e6 MHz for 'R.12'
 % spectrumAnalyzer.Title = 'Power Spectrum of Two-Channel LTE Signal';

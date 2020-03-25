@@ -32,4 +32,4 @@ trData = [1;0;0;1];
 %% Calculate the DL Channel Est
 
 [estChannel, noiseEst] = findDLChEst(eNodeBOutput, rmc);
-% surf(abs(estChannel));
+surf(abs(estChannel));
