@@ -31,7 +31,7 @@ cec.InterpWindow = 'Centred';     % Interpolation windowing method
 
 offset = lteDLFrameOffset(enb,rxWaveform);
 begin = 1+offset;
-rxWaveform = rxWaveform(begin:begin+307200-1,:);
+rxWaveform = rxWaveform(begin:begin+(enb.SamplingRate/100)-1,:);
 
 rxGrid = lteOFDMDemodulate(enb,rxWaveform);
 enb.NSubframe = 0;
