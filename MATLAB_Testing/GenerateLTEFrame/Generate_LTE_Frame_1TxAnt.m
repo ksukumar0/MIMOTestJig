@@ -32,13 +32,13 @@ if isempty(ver('lte'))
 end
 
 % Generate LTE signal
-rmc = lteRMCDL('R.9');     % Base RMC configuration
+rmc = lteRMCDL('R.9');      % Base RMC configuration
 rmc.CellRefP = 1;           % 2 transmit antennas
-rmc.NDLRB = 100;            % No. of Resource Blocks
+rmc.NDLRB = 100;             % No. of Resource Blocks
 rmc.PDSCH.NLayers = 1;      % 2 layers 
 rmc.NCellID = 64;           % Cell identity
 rmc.NFrame = 100;           % Initial frame number
-rmc.TotSubframes = 2*10;    % Generate 8 frames. 10 subframes per frame
+rmc.TotSubframes = 2*10;      % Generate 2 frames. 10 subframes per frame
 rmc.OCNGPDSCHEnable = 'On'; % Add noise to unallocated PDSCH resource elements
 rmc.PDSCH.RNTI = 61;
 rmc.SIB.Enable = 'On';
@@ -53,7 +53,7 @@ trData = [1;0;0;1];
 
 Fs = rmc.SamplingRate;
 % NoOfSamples = size(eNodeBOutput,1);
-% 
+
 % %% Plot Power Spectrum of Two-Channel LTE Signal
 % 
 % spectrumAnalyzer = dsp.SpectrumAnalyzer;
