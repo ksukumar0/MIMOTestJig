@@ -44,7 +44,7 @@ trData = [1;0;0;1];
 [eNodeBOutput,txGrid,rmc] = lteRMCDLTool(rmc,trData);
 Fs = rmc.SamplingRate;
 % NoOfSamples = size(eNodeBOutput,1);
-eNodeBOutput = eNodeBOutput(:,1:2);
+% eNodeBOutput = eNodeBOutput(:,1:2);
 % %% Plot Power Spectrum of Two-Channel LTE Signal
 % 
 % spectrumAnalyzer = dsp.SpectrumAnalyzer;
