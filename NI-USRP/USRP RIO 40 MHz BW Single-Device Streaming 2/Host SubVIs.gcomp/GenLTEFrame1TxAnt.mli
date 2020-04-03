@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="30446B1CAFCCB171F5A500F87BBC015A97D2BDAEE2F01E9C1F5452A9C7B0B334E1443B26799EFE1C96A66884CC2E3E990B52FD7E26183C080F27FA8A70BE2376" Timestamp="1D608F36471D66E" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="215D9FA133C19BE465E995D7C7B171A799A606FB752835AB82D6196A0D806048230157862FACC8C612520F4E3FEE31EAD24ACFB5F7B17538A46D665FEF862CDC" Timestamp="1D6099E57EBB4B0" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Interface for MATLAB®" Name="http://www.ni.com/Matlab" OldestCompatibleVersion="5.3.1.49152" Version="5.3.1.49152" />
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
@@ -8,9 +8,7 @@
 	<MatlabDefinition Id="8d822492230d45c78e61da603dd4a810" xmlns="http://www.ni.com/Matlab">
 		<p.PlatformAgnosticPathToLibrary>
 			<Path a="1">
-				<pE>H</pE>
-				<pE>TUM-PC</pE>
-				<pE>Dokumente</pE>
+				<pE>C</pE>
 				<pE>Thesis</pE>
 				<pE>MATLAB_Testing</pE>
 				<pE>GenerateLTEFrame</pE>

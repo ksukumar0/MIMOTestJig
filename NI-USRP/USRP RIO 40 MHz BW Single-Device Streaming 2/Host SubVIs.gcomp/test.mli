@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="745282A83A3D10392BC350253E8DCCAEA0E84690AE53ADDFACEEDC28907ED1DC6D9DF3081C9F3AA7CF11E25C5787D414DBBA13846E68859B6DD56449C782A52E" Timestamp="1D60459B9029407" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="7F3970545EA18B00AC713C61A6DE12639E69A77531AD3F8DDDED2FB09B111D5EC1BA5A5799EDBD0A36FC66EEADFD29D18BC8A5D1C2DE7F6079C51D165107F0D7" Timestamp="1D609CB797FCC1C" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Interface for MATLAB®" Name="http://www.ni.com/Matlab" OldestCompatibleVersion="5.3.1.49152" Version="5.3.1.49152" />
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
@@ -8,14 +8,11 @@
 	<MatlabDefinition Id="b484a5b4fe6a495dbae5ee3e160c3b41" xmlns="http://www.ni.com/Matlab">
 		<p.PlatformAgnosticPathToLibrary>
 			<Path a="1">
-				<pE>H</pE>
-				<pE>TUM-PC</pE>
-				<pE>Dokumente</pE>
+				<pE>C</pE>
 				<pE>Thesis</pE>
 				<pE>MATLAB_Testing</pE>
 				<pE>GenerateLTEFrame</pE>
-				<pE>HelperFunctions</pE>
-				<pE>test.m</pE>
+				<pE>GenSineTone2Tx.m</pE>
 			</Path>
 		</p.PlatformAgnosticPathToLibrary>
 		<Icon Id="1c42e213aa9645008601f97cd7cd55b9" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
@@ -40,15 +37,15 @@
 							</IconTemplate>
 						</IconPanel>
 					</Icon>
-					<ConnectorPane Height="40" Id="89e63807ae79455ebe26d19accf181e6" ListViewHeight="115" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+					<ConnectorPane Height="40" Id="89e63807ae79455ebe26d19accf181e6" ListViewHeight="145" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
 						<ConnectorPaneTerminal />
-						<ConnectorPaneTerminal Hotspot="0 15" ListViewHotspot="0 65" Parameter="e8e2b1a7ef45441ab4459ed1f08f64f3" />
+						<ConnectorPaneTerminal Hotspot="0 15" />
 						<ConnectorPaneTerminal Hotspot="0 25" />
 						<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 35" Parameter="244ad1cb89574288beddfaf72996508c" />
 						<ConnectorPaneTerminal Hotspot="15 0" />
 						<ConnectorPaneTerminal Hotspot="25 0" />
-						<ConnectorPaneTerminal Hotspot="40 5" />
-						<ConnectorPaneTerminal Hotspot="40 15" ListViewHotspot="150 80" Parameter="9f1b6b14979749318cf60cec9b9b59ba" />
+						<ConnectorPaneTerminal Hotspot="40 5" ListViewHotspot="150 65" Parameter="9f1b6b14979749318cf60cec9b9b59ba" />
+						<ConnectorPaneTerminal Hotspot="40 15" ListViewHotspot="150 80" Parameter="77a1bd7f2cc44b51a8d6c483d4134b37" />
 						<ConnectorPaneTerminal Hotspot="40 25" />
 						<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 50" Parameter="f56a8f06557242da8d6403b167382c26" />
 						<ConnectorPaneTerminal Hotspot="15 40" />
@@ -56,13 +53,13 @@
 					</ConnectorPane>
 					<MatlabErrorDiagramParameter CallDirection="Input" Id="244ad1cb89574288beddfaf72996508c" Name="error in" />
 					<MatlabErrorDiagramParameter CallDirection="Output" Id="f56a8f06557242da8d6403b167382c26" Name="error out" />
-					<MatlabParameter DataType="ComplexDouble[]" Id="4ab956d925b84dbc8b34d4fa7bde1ae3" Name="input">
-						<MatlabDiagramParameter CallDirection="Input" Id="e8e2b1a7ef45441ab4459ed1f08f64f3" Name="input" />
-						<MatlabDiagramParameter CallDirection="Output" Id="592646be10144bc68f4c658b9d09ba1d" Name="input out" Visible="False" />
-					</MatlabParameter>
-					<MatlabParameter DataType="ComplexDouble[]" Id="868f760c058c4a7490d5ed8a924c0d30" Name="output">
+					<MatlabParameter DataType="ComplexDouble[,]" Id="868f760c058c4a7490d5ed8a924c0d30" Name="output">
 						<MatlabDiagramParameter CallDirection="Input" Id="9f6add62426c4edbafc60a1ee0f58347" Name="output in" Visible="False" />
 						<MatlabDiagramParameter CallDirection="Output" Id="9f1b6b14979749318cf60cec9b9b59ba" Name="output" />
+					</MatlabParameter>
+					<MatlabParameter DataType="Double" Id="2529a409b37245a7805543d6a5165421" Name="Fs">
+						<MatlabDiagramParameter CallDirection="Input" Id="74ebde06397741d7924fbf6addde0ca4" Name="Fs in" Visible="False" />
+						<MatlabDiagramParameter CallDirection="Output" Id="77a1bd7f2cc44b51a8d6c483d4134b37" Name="Fs" />
 					</MatlabParameter>
 				</MatlabEntryPoint>
 			</EmbeddedDefinitionReference>
