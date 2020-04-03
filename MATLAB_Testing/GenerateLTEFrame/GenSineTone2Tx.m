@@ -3,7 +3,7 @@ function [output, Fs] = GenSineTone2Tx()
 % close all;
 % clear all;
 Fs = 30.72e6;
-NoOfSamples = 30.72e6*0.01*0.1;
+NoOfSamples = 30.72e6*0.01*2;
 Amplitude = 0.5;
 Fs = cast(Fs,'double');
 NoOfSamples = cast(NoOfSamples,'uint32');
