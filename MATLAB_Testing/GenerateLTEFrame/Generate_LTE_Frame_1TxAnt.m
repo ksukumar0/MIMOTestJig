@@ -31,29 +31,20 @@ if isempty(ver('lte'))
     error(message('sdru:examples:NeedLST'));
 end
 
+addpath('HelperFunctions');
+
+%% Define parameters for the end waveform
+
+params = getLTEWaveformParameters();
+
 % Generate LTE signal
-rmc = lteRMCDL('R.9');      % Base RMC configuration
-rmc.CellRefP = 1;           % 2 transmit antennas
-rmc.NDLRB = 100;             % No. of Resource Blocks
-rmc.PDSCH.NLayers = 1;      % 2 layers 
-rmc.NCellID = 64;           % Cell identity
-rmc.NFrame = 100;           % Initial frame number
-rmc.TotSubframes = 2*10;      % Generate 2 frames. 10 subframes per frame
-rmc.OCNGPDSCHEnable = 'On'; % Add noise to unallocated PDSCH resource elements
-rmc.PDSCH.RNTI = 61;
-rmc.SIB.Enable = 'On';
-rmc.SIB.DCIFormat = 'Format1A';
-rmc.SIB.AllocationType = 0;
-rmc.SIB.VRBStart = 0;
-rmc.SIB.VRBLength = 6;
-rmc.SIB.Gap = 0;
-rmc.SIB.Data = randi([0 1],144,1); % Use random bits in SIB data field. This is not a valid SIB message
+% rmc = lteRMCDL('R.45');      % Base RMC configuration
+rmc = lteRMCDL(params);      % Base RMC configuration
 trData = [1;0;0;1];
 [eNodeBOutput,txGrid,rmc] = lteRMCDLTool(rmc,trData);
-
 Fs = rmc.SamplingRate;
 % NoOfSamples = size(eNodeBOutput,1);
-
+eNodeBOutput = eNodeBOutput(:,1:2);
 % %% Plot Power Spectrum of Two-Channel LTE Signal
 % 
 % spectrumAnalyzer = dsp.SpectrumAnalyzer;
@@ -73,3 +64,5 @@ Fs = rmc.SamplingRate;
 % else
 %     sprintf("Error: %d Writing to file failed\n",retval);
 % end
+
+end

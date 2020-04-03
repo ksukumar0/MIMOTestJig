@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SourceFile Checksum="59E5C1DE3CD08C0B61DE17ACC94B6E3A158D16B8849912F7A901FD65EC903213056AA6A3ADDFF1461C2E326BF3D7140C53EDCFE5C01597593FDEBB85496D936A" Timestamp="1D6010261D6BBB5" xmlns="http://www.ni.com/PlatformFramework">
+<SourceFile Checksum="30446B1CAFCCB171F5A500F87BBC015A97D2BDAEE2F01E9C1F5452A9C7B0B334E1443B26799EFE1C96A66884CC2E3E990B52FD7E26183C080F27FA8A70BE2376" Timestamp="1D608F36471D66E" xmlns="http://www.ni.com/PlatformFramework">
 	<SourceModelFeatureSet>
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Interface for MATLAB®" Name="http://www.ni.com/Matlab" OldestCompatibleVersion="5.3.1.49152" Version="5.3.1.49152" />
 		<ParsableNamespace AssemblyFileVersion="7.1.0.50148" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
@@ -61,7 +61,7 @@
 					</ConnectorPane>
 					<MatlabErrorDiagramParameter CallDirection="Input" Id="5a162b405c3b4c0d8036344a51048a8c" Name="Fehler (Eingang)" />
 					<MatlabErrorDiagramParameter CallDirection="Output" Id="5e291f507e404366a5b0f1389f77a666" Name="Fehler (Ausgang)" />
-					<MatlabParameter DataType="ComplexDouble[]" Id="ffaa6ffbeca244e9999dced7dda859f0" Name="ComplexSamples">
+					<MatlabParameter DataType="ComplexDouble[,]" Id="ffaa6ffbeca244e9999dced7dda859f0" Name="ComplexSamples">
 						<MatlabDiagramParameter CallDirection="Input" Id="397f653946964133b7d63f2904cdffd3" Name="ComplexSamples in" Visible="False" />
 						<MatlabDiagramParameter CallDirection="Output" Id="6b1a7c0e34a9464e85033a79c475d4b8" Name="ComplexSamples" />
 					</MatlabParameter>
