@@ -6,15 +6,15 @@ Fs = 30.72e6;
 FrameSize = Fs*0.01;
 NoOfFrames = 2;
 NoOfSamples = FrameSize*NoOfFrames;
-Amplitude = 0.5;
+Amplitude = [1.0 0.75 0.5 0.25];
 Fs = cast(Fs,'double');
 NoOfSamples = cast(NoOfSamples,'uint32');
 Amplitude = double(Amplitude);
 
-F0 = 1e6;
-F1 = 2e6;
-F2 = 3e6;
-F3 = 4e6;
+F0 = 1e5;
+F1 = 2e5;
+F2 = 3e5;
+F3 = 4e5;
 
 Fchosen = F1;
 
@@ -23,27 +23,19 @@ F1 = Fchosen;
 F2 = Fchosen;
 F3 = Fchosen;
 
-% F0 = 1.2e6;
-% F1 = 800e3;
+F = [F0 F1 F2 F3];
+% phaseOffset = [0 pi/3 2*pi/3 pi];
+phaseOffset = [0 0 0 0];
 
-% t = linspace(0,NoOfSamples/Fs,NoOfSamples);
 t = linspace(0,double(NoOfSamples-1)/Fs,NoOfSamples);
+output = zeros(size(F,2),NoOfSamples);
 
-% x = cos((2*pi)*F0*t) + cos((2*pi)*F1*t);
-% y = sin((2*pi)*F0*t) + sin((2*pi)*F1*t);
+count = 1;
+for freqi = F
+     output(count,:) = cos((2*pi)*freqi*t  + phaseOffset(count)) + 1i*sin((2*pi)*freqi*t + phaseOffset(count));
+     count = count + 1;
+end
 
-phaseOffset = 0;
-
-outputA = cos((2*pi)*F0*t) + 1i*sin((2*pi)*F0*t);
-outputB = cos((2*pi)*F1*t+phaseOffset ) + 1i*sin((2*pi)*F1*t+phaseOffset);
-
-outputA = Amplitude*0.5*outputA;
-outputB = Amplitude*outputB;
-
-% plot(t,real(outputA),t, real(outputB),t, imag(outputA),t, imag(outputB));
-
-outputA = transpose(double(outputA));
-outputB = transpose(double(outputB));
-
-output = [outputA outputB];
+output = diag(Amplitude)*output;
+output = transpose(output);
 end
