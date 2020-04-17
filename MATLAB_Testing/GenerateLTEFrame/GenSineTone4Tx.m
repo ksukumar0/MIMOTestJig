@@ -12,7 +12,7 @@ NoOfSamples = cast(NoOfSamples,'uint32');
 Amplitude = double(Amplitude);
 
 F0 = 1e5;
-F1 = 2e5;
+F1 = 2e6;
 F2 = 3e5;
 F3 = 4e5;
 
