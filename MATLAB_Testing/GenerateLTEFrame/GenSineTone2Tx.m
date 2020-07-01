@@ -24,7 +24,7 @@ t = linspace(0,double(NoOfSamples-1)/Fs,NoOfSamples);
 % x = cos((2*pi)*F0*t) + cos((2*pi)*F1*t);
 % y = sin((2*pi)*F0*t) + sin((2*pi)*F1*t);
 
-phaseOffset = 0;
+phaseOffset = pi/4;
 
 outputA = cos((2*pi)*F0*t) + 1i*sin((2*pi)*F0*t);
 outputB = cos((2*pi)*F1*t+phaseOffset ) + 1i*sin((2*pi)*F1*t+phaseOffset);
