@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile Checksum="C86B9A001DC0C4488BE2459451988D0BEBD70CB512CA444BE56268B26B462A70F2C922B4418315DEAD613124EE44AF03F0FC6EEAD7B27B47AD5BBA0707F306A7" Timestamp="1D57CF94755318E" xmlns="http://www.ni.com/PlatformFramework">
+	<SourceModelFeatureSet>
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50029" FeatureSetName="LabVIEW Controls" Name="http://www.ni.com/Controls.LabVIEW.Design" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50029" FeatureSetName="LabVIEW FPGA" Name="http://www.ni.com/LabVIEW.FPGA" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50029" FeatureSetName="LabVIEW Virtual Instrument" Name="http://www.ni.com/LabVIEW.VI" OldestCompatibleVersion="7.1.0.49152" Version="7.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50029" FeatureSetName="Common language components" Name="http://www.ni.com/MocCommon" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50029" FeatureSetName="Editor" Name="http://www.ni.com/PanelCommon" OldestCompatibleVersion="6.1.0.0" Version="6.1.0.49152" />
+		<ParsableNamespace AssemblyFileVersion="7.1.0.50029" FeatureSetName="Editor" Name="http://www.ni.com/PlatformFramework" OldestCompatibleVersion="7.1.0.49153" Version="7.1.0.49153" />
+		<ApplicationVersionInfo Build="7.1.0.50029" Name="LabVIEW NXG" Version="4.0.0" />
+	</SourceModelFeatureSet>
+	<VirtualInstrument Id="1" LicenseIdentifier="4387e27a-e89b-4eed-b0b6-9e9a125a9bf4" Reentrancy="Stateful" xmlns="http://www.ni.com/LabVIEW.VI">
+		<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">"&lt;p&gt;Generates subsegment reordering information and the write address based on the deinterleaver operation defined in 3GPP TS 36.212 5.1.3.2.3.&lt;/p&gt;&lt;p&gt;The input stream order is ordered linear as in the c sequence defined in 3GPP TS 36.212 5.1.3.&lt;/p&gt;&lt;p&gt;Interleaved address = memory select * K/4 + write address&lt;/p&gt;&lt;p&gt;\n&lt;strong&gt;Latency: 1 cycle (4 cycles after reset)&lt;/strong&gt;\n&lt;/p&gt;"</p.UserDescription>
+		<Icon Id="2" ListViewIconCrop="0 0 40 40" xmlns="http://www.ni.com/PlatformFramework">
+			<IconPanel Height="[float]40" Id="1564" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+				<Path Data="[PathGeometry]M 36,40 L 4,40 C 1.79100001,40 0,38.2089996 0,36 L 0,4 C 0,1.79100001 1.79100001,0 4,0 L 36,0 C 38.2089996,0 40,1.79100001 40,4 L 40,36 C 40,38.2089996 38.2089996,40 36,40 Z" Fill="[SMSolidColorBrush]#ff727272" Height="[float]40" Id="1566" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+				<Path Data="[PathGeometry]M 36,39 L 4,39 C 2.34299994,39 1,37.6570015 1,36 L 1,4 C 1,2.34299994 2.34299994,1 4,1 L 36,1 C 37.6570015,1 39,2.34299994 39,4 L 39,36 C 39,37.6570015 37.6570015,39 36,39 Z" Fill="[SMSolidColorBrush]#fff2f2f2" Height="[float]40" Id="1567" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+				<Path Data="[PathGeometry]M 4,2 L 36,2 C 37.1049995,2 38,2.89499998 38,4 L 38,36 C 38,37.1049995 37.1049995,38 36,38 L 4,38 C 2.89499998,38 2,37.1049995 2,36 L 2,4 C 2,2.89499998 2.89499998,2 4,2 Z" Fill="[SMSolidColorBrush]#ffe5e5e5" Height="[float]40" Id="1568" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+				<Path Data="[PathGeometry]M 36,2 L 4,2 C 2.89499998,2 2,2.89499998 2,4 L 2,12 L 38,12 L 38,4 C 38,2.89499998 37.1049995,2 36,2 Z M 16.9300003,10 L 12.7349997,10 L 12.7349997,4.18400002 L 14.2349997,4.18400002 L 14.2349997,8.875 L 16.9300003,8.875 L 16.9300003,10 Z M 22.3829994,5.30900002 L 20.5669994,5.30900002 L 20.5669994,10 L 19.0669994,10 L 19.0669994,5.30900002 L 17.25,5.30900002 L 17.25,4.18400002 L 22.3829994,4.18400002 L 22.3829994,5.30900002 Z M 27.4920006,5.30900002 L 24.7770004,5.30900002 L 24.7770004,6.3130002 L 27.2970009,6.3130002 L 27.2970009,7.4380002 L 24.7770004,7.4380002 L 24.7770004,8.8760004 L 27.4920006,8.8760004 L 27.4920006,10 L 23.2849998,10 L 23.2849998,4.18400002 L 27.4920006,4.18400002 L 27.4920006,5.30900002 Z" Fill="[SMSolidColorBrush]#ff6205c4" Height="[float]40" Id="1569" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+				<Text Height="[float]27" Id="1570" Left="[float]1" SizeMode="[TextModelSizeMode]Fixed" Text="[string]LIN QPP&#xD;&#xA;INTERLV" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]12" Width="[float]38">
+					<FontSetting FontSize="5" Id="1571" />
+				</Text>
+			</IconPanel>
+		</Icon>
+		<ConnectorPane Height="40" Id="9" ListViewHeight="120" ListViewWidth="150" Width="40" xmlns="http://www.ni.com/PlatformFramework">
+			<ConnectorPaneTerminal ListViewHotspot="0 35" Parameter="870" />
+			<ConnectorPaneTerminal Hotspot="0 15" />
+			<ConnectorPaneTerminal Hotspot="0 25" ListViewHotspot="0 65" Parameter="875" />
+			<ConnectorPaneTerminal Hotspot="0 35" ListViewHotspot="0 50" Parameter="871" />
+			<ConnectorPaneTerminal Hotspot="15 0" />
+			<ConnectorPaneTerminal Hotspot="25 0" />
+			<ConnectorPaneTerminal Hotspot="40 5" ListViewHotspot="150 110" Parameter="1542" />
+			<ConnectorPaneTerminal Hotspot="40 15" />
+			<ConnectorPaneTerminal Hotspot="40 25" ListViewHotspot="150 80" Parameter="874" />
+			<ConnectorPaneTerminal Hotspot="40 35" ListViewHotspot="150 95" Parameter="869" />
+			<ConnectorPaneTerminal Hotspot="15 40" />
+			<ConnectorPaneTerminal Hotspot="25 40" />
+		</ConnectorPane>
+		<DiagramUnplacedItems Id="10" xmlns="http://www.ni.com/MocCommon" />
+		<FrontPanelUnplacedItems Id="11" Left="[float]0" PanelSizeMode="Fixed" Top="[float]0" />
+		<BlockDiagram Id="12">
+			<DataAccessor Bounds="705 490 40 15" DataItem="869" Id="570" Label="855" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Boolean" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<DataAccessor Bounds="-380 -75 40 15" DataItem="870" Id="571" Label="856" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="UFXP(13.0)" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<DataAccessor Bounds="-380 490 40 15" DataItem="871" Id="572" Label="857" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<DataAccessor Bounds="705 5 40 15" DataItem="874" Id="575" Label="860" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="UInt16" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<DataAccessor Bounds="-380 460 40 15" DataItem="875" Id="576" Label="861" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="Boolean" Direction="Output" Hotspot="40 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<MethodCall Bounds="-305 15 40 40" Id="596" Signature="@09abb538f4de41a1a42f6f86cde0b851" Target="AFW::LTE::Shared::Data Channel::QPP Interleaver::Get Code Block Size Table Index.gcdl" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="code block size" />
+						<Parameter Id="R0" Desc="code block size index" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="UFXP(13.0)" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UInt8" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Comment Bounds="-315 55 58 28" Id="600" xmlns="http://www.ni.com/MocCommon">
+				<p.Text>delay 1</p.Text>
+			</Comment>
+			<MemoryCreateInitialValues Bounds="-380 5 40 40" Id="602" MemoryReadLatency="1" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<Comment Bounds="-625 -40 287 28" Id="615" xmlns="http://www.ni.com/MocCommon">
+				<p.Text>initial constants for QPP interleaver for S-stream</p.Text>
+			</Comment>
+			<MethodCall Bounds="350 60 40 40" Id="620" Signature="@81fed6787ae6459fa67eee99505596af" Target="AFW::LTE::Shared::Data Channel::QPP Interleaver::QPP Interleaver Calculation Core.gcdl" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="T1" Desc="S" />
+						<Parameter Id="L0" Desc="f(c, d)" />
+						<Parameter Id="L2" Desc="g(c, d)" />
+						<Parameter Id="L1" Desc="fb(c, d)" />
+						<Parameter Id="L3" Desc="gb(c, d)" />
+						<Parameter Id="R0" Desc="f(c+d, d)" />
+						<Parameter Id="R1" Desc="fb(c+d, d)" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="UFXP(11.0)" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(2.0)" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(11.0)" Direction="Input" Hotspot="0 25" Id="L2" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(2.0)" Direction="Input" Hotspot="0 35" Id="L3" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(11.0)" Direction="Input" Hotspot="25 0" Id="T1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(11.0)" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(2.0)" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<MemoryRead Bounds="-200 5 40 40" Id="621" xmlns="http://www.ni.com/LabVIEW.FPGA" />
+			<ScaleByPowerOf2 Bounds="-190 -90 30 30" Id="625" />
+			<Literal Bounds="-240 -90 40 15" DataType="Int16" Id="626" Label="864" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>-2</p.Data>
+				<NumericBehavior Interpretation="Exact" ValueFormatter="LV:" />
+			</Literal>
+			<Wire Id="627" Joints="N(626:Out)|(-200,-85) N(625:n)|(-190,-85)" xmlns="http://www.ni.com/PlatformFramework" />
+			<ToFixedPoint Bounds="5 -80 50 10" Id="629">
+				<ConfigurableDataTypeTerminal DataType="UFXP(11.0)" DesiredType="UFXP(11.0)" Direction="Output" GuardBits="12" Hotspot="50 5" Id="fixed-point" TypeOverrideKind="Exact" Usage="Optional" WordLengthLimitOffset="16" WordLengthReductionMode="Wrap:Truncate" xmlns="http://www.ni.com/PlatformFramework" />
+			</ToFixedPoint>
+			<MethodCall Bounds="350 180 40 40" Id="683" Signature="@81fed6787ae6459fa67eee99505596af" Target="AFW::LTE::Shared::Data Channel::QPP Interleaver::QPP Interleaver Calculation Core.gcdl" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="T1" Desc="S" />
+						<Parameter Id="L0" Desc="f(c, d)" />
+						<Parameter Id="L2" Desc="g(c, d)" />
+						<Parameter Id="L1" Desc="fb(c, d)" />
+						<Parameter Id="L3" Desc="gb(c, d)" />
+						<Parameter Id="R0" Desc="f(c+d, d)" />
+						<Parameter Id="R1" Desc="fb(c+d, d)" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="UFXP(11.0)" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(2.0)" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(11.0)" Direction="Input" Hotspot="0 25" Id="L2" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(2.0)" Direction="Input" Hotspot="0 35" Id="L3" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(11.0)" Direction="Input" Hotspot="25 0" Id="T1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(11.0)" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(2.0)" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<MethodCall Bounds="350 285 40 40" Id="690" Signature="@81fed6787ae6459fa67eee99505596af" Target="AFW::LTE::Shared::Data Channel::QPP Interleaver::QPP Interleaver Calculation Core.gcdl" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="T1" Desc="S" />
+						<Parameter Id="L0" Desc="f(c, d)" />
+						<Parameter Id="L2" Desc="g(c, d)" />
+						<Parameter Id="L1" Desc="fb(c, d)" />
+						<Parameter Id="L3" Desc="gb(c, d)" />
+						<Parameter Id="R0" Desc="f(c+d, d)" />
+						<Parameter Id="R1" Desc="fb(c+d, d)" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="UFXP(11.0)" Direction="Input" Id="L0" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(2.0)" Direction="Input" Hotspot="0 15" Id="L1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(11.0)" Direction="Input" Hotspot="0 25" Id="L2" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(2.0)" Direction="Input" Hotspot="0 35" Id="L3" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(11.0)" Direction="Input" Hotspot="25 0" Id="T1" Usage="Required" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(11.0)" Direction="Output" Hotspot="40 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="UFXP(2.0)" Direction="Output" Hotspot="40 15" Id="R1" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Add Bounds="355 390 30 30" Id="693" Terminals="o=1000, c0t0v=991, c1t0v=992">
+				<ConfigurableDataTypeTerminal DataType="UFXP(2.0)" DesiredType="UFXP(2.0)" Direction="Output" GuardBits="12" Hotspot="30 15" Id="o" LimitStrategy="Error" TypeOverrideKind="Exact" Usage="Optional" WordLengthLimit="MaximumWordLength" WordLengthLimitOffset="16" WordLengthReductionMode="Wrap:Truncate" xmlns="http://www.ni.com/PlatformFramework" />
+			</Add>
+			<Select Bounds="10 15 40 40" Id="942" />
+			<PropertyNode Bounds="490 30 110 125" HasErrorTerminals="False" Id="966" InstanceDataType="@4b364123a16c4a7bad1f148596eb381f" Mode="InstanceProperties" Template="List" xmlns="http://www.ni.com/MocCommon">
+				<PropertyItemTerminal Action="Write" DataType="UFXP(11.0)" Hotspot="0 15" Id="c0t0v" Path="f(0+n*1,1)" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="UFXP(2.0)" Hotspot="0 30" Id="c1t0v" Path="fb(0+n*1,1)" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="UFXP(11.0)" Hotspot="0 45" Id="c2t0v" Path="g(0+n*1,1)" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="UFXP(2.0)" Hotspot="0 60" Id="c3t0v" Path="gb(0+n*1,1)" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="UFXP(11.0)" Hotspot="0 75" Id="c4t0v" Path="h(0+n*1,1)" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="UFXP(2.0)" Hotspot="0 90" Id="c5t0v" Path="hb(0+n*1,1)" PathElementMemberKinds="Field" Usage="Required" />
+				<PropertyItemTerminal Action="Write" DataType="UFXP(2.0)" Hotspot="0 105" Id="c6t0v" Path="ib(0+n*1,1)" PathElementMemberKinds="Field" Usage="Required" />
+			</PropertyNode>
+			<PropertyNode Bounds="150 30 115 80" HasErrorTerminals="False" Id="971" InstanceDataType="@4b364123a16c4a7bad1f148596eb381f" Mode="InstanceProperties" Template="List" xmlns="http://www.ni.com/MocCommon">
+				<PropertyItemTerminal DataType="UFXP(11.0)" Hotspot="115 15" Id="c0t0v" Path="f(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyItemTerminal DataType="UFXP(2.0)" Hotspot="115 30" Id="c1t0v" Path="fb(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyItemTerminal DataType="UFXP(11.0)" Hotspot="115 45" Id="c2t0v" Path="g(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyItemTerminal DataType="UFXP(2.0)" Hotspot="115 60" Id="c3t0v" Path="gb(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+			</PropertyNode>
+			<Wire Id="973" Joints="N(971:c0t0v)|(265,45) h(50) B(1) v(-35) N(1025:number)|(523,10) B(1) v(20) N(620:L0)|(350,65)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="975" Joints="N(971:c2t0v)|(265,75) h(50) v(10) N(620:L2)|(350,85)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="976" Joints="N(971:c3t0v)|(265,90) h(60) v(5) N(620:L3)|(350,95)" xmlns="http://www.ni.com/PlatformFramework" />
+			<PropertyNode Bounds="150 150 115 80" HasErrorTerminals="False" Id="977" InstanceDataType="@4b364123a16c4a7bad1f148596eb381f" Mode="InstanceProperties" Template="List" xmlns="http://www.ni.com/MocCommon">
+				<PropertyItemTerminal DataType="UFXP(11.0)" Hotspot="115 15" Id="c0t0v" Path="g(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyItemTerminal DataType="UFXP(2.0)" Hotspot="115 30" Id="c1t0v" Path="gb(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyItemTerminal DataType="UFXP(11.0)" Hotspot="115 45" Id="c2t0v" Path="h(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyItemTerminal DataType="UFXP(2.0)" Hotspot="115 60" Id="c3t0v" Path="hb(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+			</PropertyNode>
+			<Wire Id="979" Joints="N(977:c0t0v)|(265,165) h(20) v(20) N(683:L0)|(350,185)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="980" Joints="N(977:c1t0v)|(265,180) h(40) v(15) N(683:L1)|(350,195)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="981" Joints="N(977:c2t0v)|(265,195) h(50) v(10) N(683:L2)|(350,205)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="982" Joints="N(977:c3t0v)|(265,210) h(60) v(5) N(683:L3)|(350,215)" xmlns="http://www.ni.com/PlatformFramework" />
+			<PropertyNode Bounds="150 255 115 80" HasErrorTerminals="False" Id="983" InstanceDataType="@4b364123a16c4a7bad1f148596eb381f" Mode="InstanceProperties" Template="List" xmlns="http://www.ni.com/MocCommon">
+				<PropertyItemTerminal DataType="UFXP(11.0)" Hotspot="115 15" Id="c0t0v" Path="h(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyItemTerminal DataType="UFXP(2.0)" Hotspot="115 30" Id="c1t0v" Path="hb(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyItemTerminal DataType="UFXP(11.0)" Hotspot="115 45" Id="c2t0v" Path="i(0,1)" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyItemTerminal DataType="UFXP(2.0)" Hotspot="115 60" Id="c3t0v" Path="ib(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+			</PropertyNode>
+			<Wire Id="985" Joints="N(983:c0t0v)|(265,270) h(20) v(20) N(690:L0)|(350,290)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="986" Joints="N(983:c1t0v)|(265,285) h(40) v(15) N(690:L1)|(350,300)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="987" Joints="N(983:c2t0v)|(265,300) h(50) v(10) N(690:L2)|(350,310)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="988" Joints="N(983:c3t0v)|(265,315) h(60) v(5) N(690:L3)|(350,320)" xmlns="http://www.ni.com/PlatformFramework" />
+			<PropertyNode Bounds="150 360 115 50" HasErrorTerminals="False" Id="989" InstanceDataType="@4b364123a16c4a7bad1f148596eb381f" Mode="InstanceProperties" Template="List" xmlns="http://www.ni.com/MocCommon">
+				<PropertyItemTerminal DataType="UFXP(2.0)" Hotspot="115 15" Id="c0t0v" Path="ib(0+n*1,1)" PathElementMemberKinds="Field" Usage="Optional" />
+				<PropertyItemTerminal DataType="UFXP(2.0)" Hotspot="115 30" Id="c1t0v" Path="delta ib(0,1)" PathElementMemberKinds="Field" Usage="Optional" />
+			</PropertyNode>
+			<Wire Id="991" Joints="N(989:c0t0v)|(265,375) h(10) v(20) N(693:c0t0v)|(355,395)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="992" Joints="N(989:c1t0v)|(265,390) h(5) v(20) N(693:c1t0v)|(355,410)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="995" Joints="N(620:R1)|(390,75) h(35) v(-15) N(966:c1t0v)|(490,60)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="996" Joints="N(683:R0)|(390,185) h(35) v(-110) N(966:c2t0v)|(490,75)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="997" Joints="N(683:R1)|(390,195) h(45) v(-105) N(966:c3t0v)|(490,90)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="998" Joints="N(690:R0)|(390,290) h(55) v(-185) N(966:c4t0v)|(490,105)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="999" Joints="N(690:R1)|(390,300) h(65) v(-180) N(966:c5t0v)|(490,120)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1000" Joints="N(693:o)|(385,405) h(80) v(-270) N(966:c6t0v)|(490,135)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1002" Joints="N(971:instance out)|(265,35) N(966:instance in)|(490,35)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1009" Joints="N(596:R0)|(-265,20) N(1011:number)|(-242,20)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1010" Joints="N(1011:unsigned 32bit integer)|(-215,20) N(621:address)|(-200,20)" xmlns="http://www.ni.com/PlatformFramework" />
+			<ToUnsigned32BitInteger Bounds="-245 15 30 10" Id="1011" />
+			<ToUnsigned16BitInteger Bounds="520 5 30 10" Id="1025" />
+			<FeedbackNode ArrowDirection="Right" Bounds="-295 455 30 20" EnableTerminalVisible="False" Id="1092" />
+			<FeedbackNode ArrowDirection="Right" Bounds="-295 -80 30 20" EnableTerminalVisible="False" Id="1094" />
+			<Wire Id="1097" Joints="N(571:Value)|(-340,-70) h(20) B(1) N(1094:input)|(-289,-70) B(1) v(90) N(596:L0)|(-305,20)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1098" Joints="N(1094:output)|(-265,-70) N(625:x)|(-190,-70)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1111" Joints="N(576:Value)|(-340,465) N(1092:input)|(-289,465)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1112" Joints="N(602:reference out)|(-340,10) N(621:reference in)|(-200,10)" xmlns="http://www.ni.com/PlatformFramework" />
+			<FeedbackNode ArrowDirection="Right" Bounds="660 0 30 20" EnableTerminalVisible="False" Id="1119" />
+			<FeedbackNode ArrowDirection="Right" Bounds="660 485 30 20" EnableTerminalVisible="False" Id="1120" />
+			<Wire Id="1129" Joints="N(1120:output)|(690,495) N(570:Value)|(708,495)" xmlns="http://www.ni.com/PlatformFramework" />
+			<WireComment AttachedTo="1296" Bounds="173.5 -82.5 66 15" Id="1148" xmlns="http://www.ni.com/PlatformFramework">
+				<p.ExpandedWidth>66</p.ExpandedWidth>
+				<p.Point>206.5 -75</p.Point>
+				<p.Text>S = K/P</p.Text>
+			</WireComment>
+			<Wire Id="1210" Joints="N(971:c1t0v)|(265,60) h(40) B(1) v(-135) N(1212:input)|(666,-75) B(1) v(15) N(620:L1)|(350,75)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1211" Joints="N(1212:output)|(690,-75) N(1544:Value)|(708,-75)" xmlns="http://www.ni.com/PlatformFramework" />
+			<FeedbackNode ArrowDirection="Right" Bounds="660 -85 30 20" EnableTerminalVisible="False" Id="1212" />
+			<LogicalOr Bounds="10 460 25 20" Id="1224" Terminals="o=1291, c0t0v=1274, c1t0v=1301" />
+			<FeedbackNode ArrowDirection="Right" Bounds="-145 10 30 20" EnableTerminalVisible="False" Id="1230" />
+			<FeedbackNode ArrowDirection="Right" Bounds="-145 455 30 20" EnableTerminalVisible="False" Id="1243" />
+			<Wire Id="1250" Joints="N(1092:output)|(-265,465) N(1243:input)|(-139,465)" xmlns="http://www.ni.com/PlatformFramework" />
+			<FeedbackNode ArrowDirection="Right" Bounds="-145 -85 30 20" EnableTerminalVisible="False" Id="1253" />
+			<Wire Id="1256" Joints="N(625:x*2^n)|(-160,-75) N(1253:input)|(-139,-75)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1257" Joints="N(1253:output)|(-115,-75) N(629:number)|(9,-75)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1269" Joints="N(1119:output)|(690,10) N(575:Value)|(708,10)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1270" Joints="N(1025:unsigned 16bit integer)|(550,10) N(1119:input)|(666,10)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1274" Joints="N(1243:output)|(-115,465) h(100) B(1) N(1224:c0t0v)|(12,465) B(1) v(-430) N(942:s)|(10,35)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1276" Joints="N(620:R0)|(390,65) h(65) v(-20) N(966:c0t0v)|(490,45)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1282" Joints="N(621:data)|(-160,20) N(1230:input)|(-139,20)" xmlns="http://www.ni.com/PlatformFramework" />
+			<FeedbackNode ArrowDirection="Right" Bounds="70 25 30 30" Id="1285" />
+			<Wire Id="1288" Joints="N(942:s? t:f)|(50,35) N(1285:input)|(76,35)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1289" Joints="N(1285:output)|(100,35) h(30) B(1) N(971:instance in)|(150,35) B(1) v(120) B(3) N(977:instance in)|(150,155) B(3) v(105) B(5) N(983:instance in)|(150,260) B(5) v(105) N(989:instance in)|(150,365)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1291" Joints="N(1224:o)|(35,470) h(30) v(-420) N(1285:enable?)|(70,50)" xmlns="http://www.ni.com/PlatformFramework" />
+			<FeedbackNode ArrowDirection="Right" Bounds="70 -85 30 20" EnableTerminalVisible="False" Id="1292" />
+			<Wire Id="1295" Joints="N(629:fixed-point)|(55,-75) N(1292:input)|(76,-75)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1296" Joints="N(1292:output)|(100,-75) h(185) v(125) B(2) h(90) N(620:T1)|(375,60) B(2) v(120) B(5) h(90) N(683:T1)|(375,180) B(5) v(105) h(90) N(690:T1)|(375,285)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1301" Joints="N(572:Value)|(-340,495) h(325) B(1) N(1120:input)|(666,495) B(1) v(-20) N(1224:c1t0v)|(12,475)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Facade="WireInvisibleFacade" Id="1446" Joints="N(1495:Out)|(-380,10) h(5) v(-1) h(-5) N(602:initial value array)|(-380,10)" Visible="False" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1447" Joints="N(966:instance out)|(600,35) h(21) v(405) h(-626) v(-390) N(942:f)|(10,50)" xmlns="http://www.ni.com/PlatformFramework" />
+			<Wire Id="1448" Joints="N(1540:R0)|(-40,20) N(942:t)|(10,20)" xmlns="http://www.ni.com/PlatformFramework" />
+			<ArrayLiteral Bounds="-392 5 12 10" DataType="@8039cb85cbd74fb2b3d2d752293d3857" Id="1495" Label="1496" xmlns="http://www.ni.com/MocCommon">
+				<p.Data>
+					<Array Lengths="188">
+						<Elements>0x7_0x0_0x0_0x3_0x2_0x0_0x0_,0x7_0x0_0x0_0x1_0x2_0x0_0x0_,0x3_0x0_0x0_0x3_0x2_0x0_0x0_,0x7_0x0_0x0_0x0_0x2_0x0_0x0_,0xD_0x0_0x0_0x2_0x2_0x0_0x0_,0xB_0x0_0x0_0x3_0x2_0x0_0x0_,0x9_0x0_0x0_0x1_0x2_0x0_0x0_,0xB_0x0_0x0_0x2_0x2_0x0_0x0_,0xF_0x0_0x0_0x1_0x2_0x0_0x0_,0xD_0x0_0x0_0x2_0x2_0x0_0x0_,0x7_0x0_0x0_0x3_0x2_0x0_0x0_,0xF_0x0_0x0_0x0_0x2_0x0_0x0_,0x13_0x0_0x0_0x2_0x2_0x0_0x0_,0x11_0x0_0x0_0x1_0x2_0x0_0x0_,0x11_0x0_0x0_0x3_0x2_0x0_0x0_,0x15_0x0_0x0_0x2_0x2_0x0_0x0_,0x5_0x0_0x0_0x2_0x0_0x0_0x0_,0x15_0x0_0x0_0x1_0x2_0x0_0x0_,0x15_0x0_0x0_0x1_0x2_0x0_0x0_,0x17_0x0_0x0_0x0_0x2_0x0_0x0_,0x1B_0x0_0x0_0x0_0x2_0x0_0x0_,0x1B_0x0_0x0_0x3_0x2_0x0_0x0_,0x29_0x12_0x0_0x1_0x1_0x0_0x0_,0x1B_0x0_0x0_0x2_0x2_0x0_0x0_,0x2B_0x0_0x0_0x0_0x2_0x0_0x0_,0x1D_0x0_0x0_0x1_0x2_0x0_0x0_,0x2F_0x0_0x0_0x2_0x2_0x0_0x0_</Elements>
+						<Elements>0xF_0x0_0x0_0x0_0x1_0x0_0x0_,0x23_0x0_0x0_0x0_0x2_0x0_0x0_,0x21_0x0_0x0_0x3_0x2_0x0_0x0_,0x11_0x0_0x0_0x0_0x2_0x0_0x0_,0x37_0x0_0x0_0x3_0x1_0x0_0x0_,0x27_0x0_0x0_0x3_0x2_0x0_0x0_,0x25_0x0_0x0_0x1_0x2_0x0_0x0_,0x25_0x0_0x0_0x2_0x2_0x0_0x0_,0x15_0x0_0x0_0x1_0x1_0x0_0x0_,0x2B_0x0_0x0_0x0_0x2_0x0_0x0_,0x13_0x0_0x0_0x3_0x2_0x0_0x0_,0x29_0x0_0x0_0x3_0x2_0x0_0x0_,0x41_0x0_0x0_0x0_0x3_0x0_0x0_,0x43_0x0_0x0_0x0_0x2_0x0_0x0_,0x47_0x0_0x0_0x1_0x3_0x0_0x0_,0x17_0x0_0x0_0x0_0x2_0x0_0x0_,0x17_0x0_0x0_0x2_0x1_0x0_0x0_,0x49_0x0_0x0_0x2_0x2_0x0_0x0_,0xB_0x14_0x0_0x1_0x3_0x0_0x0_,0x4D_0x0_0x0_0x2_0x2_0x0_0x0_,0x4D_0x0_0x0_0x1_0x3_0x0_0x0_,0x4F_0x0_0x0_0x3_0x2_0x0_0x0_,0x5F_0x24_0x0_0x2_0x1_0x0_0x0_</Elements>
+						<Elements>0x51_0x0_0x0_0x0_0x2_0x0_0x0_,0x1D_0x0_0x0_0x3_0x1_0x0_0x0_,0x3B_0x0_0x0_0x0_0x2_0x0_0x0_,0x59_0x0_0x0_0x2_0x1_0x0_0x0_,0x39_0x0_0x0_0x1_0x2_0x0_0x0_,0x1D_0x0_0x0_0x1_0x1_0x0_0x0_,0x3B_0x0_0x0_0x1_0x2_0x0_0x0_,0x2F_0x0_0x0_0x0_0x3_0x0_0x0_,0x61_0x54_0x0_0x3_0x2_0x0_0x0_,0x1F_0x0_0x0_0x0_0x1_0x0_0x0_,0x23_0x0_0x0_0x3_0x3_0x0_0x0_,0x67_0x0_0x0_0x3_0x1_0x0_0x0_,0x67_0x0_0x0_0x2_0x2_0x0_0x0_,0x41_0x30_0x0_0x2_0x1_0x0_0x0_,0x71_0x0_0x0_0x3_0x1_0x0_0x0_,0x71_0x0_0x0_0x0_0x3_0x0_0x0_,0x3B_0x0_0x0_0x3_0x1_0x0_0x0_,0x27_0x0_0x0_0x2_0x1_0x0_0x0_,0x2B_0x0_0x0_0x3_0x3_0x0_0x0_,0x7F_0x0_0x0_0x2_0x3_0x0_0x0_</Elements>
+						<Elements>0x7F_0x0_0x0_0x0_0x3_0x0_0x0_,0x6F_0x58_0x0_0x2_0x2_0x0_0x0_,0x13_0x78_0x0_0x1_0x2_0x0_0x0_,0x2F_0x0_0x0_0x0_0x1_0x0_0x0_,0x2D_0x0_0x0_0x2_0x1_0x0_0x0_,0x79_0x60_0x0_0x3_0x3_0x0_0x0_,0x33_0x0_0x0_0x1_0x3_0x0_0x0_,0xC1_0x50_0x0_0x0_0x2_0x0_0x0_,0x31_0x0_0x0_0x3_0x1_0x0_0x0_,0xB5_0x68_0x0_0x0_0x3_0x0_0x0_,0xA1_0x0_0x0_0x2_0x1_0x0_0x0_,0x41_0x60_0x0_0x0_0x0_0x0_0x0_,0xA3_0x0_0x0_0x2_0x3_0x0_0x0_,0x57_0x0_0x0_0x0_0x1_0x0_0x0_,0x3B_0x0_0x0_0x0_0x3_0x0_0x0_,0x59_0x74_0x0_0x2_0x0_0x2_0x0_,0x39_0x0_0x0_0x0_0x1_0x0_0x0_</Elements>
+						<Elements>0x59_0x78_0x0_0x1_0x1_0x0_0x0_,0xD5_0x0_0x0_0x0_0x1_0x0_0x0_,0x15_0x0_0x0_0x2_0x3_0x0_0x0_,0xDF_0x54_0x0_0x1_0x3_0x0_0x0_,0x1F_0x80_0x0_0x0_0x0_0x0_0x0_,0xA7_0x84_0x0_0x1_0x3_0x2_0x0_,0xEF_0x88_0x0_0x3_0x3_0x0_0x0_,0x17_0x0_0x0_0x2_0x1_0x0_0x0_,0xB3_0x90_0x0_0x0_0x2_0x0_0x0_,0x105_0x94_0x0_0x3_0x2_0x2_0x0_,0x73_0x98_0x0_0x1_0x0_0x0_0x0_,0xC1_0x9C_0x0_0x0_0x2_0x2_0x0_,0x27_0xA0_0x0_0x1_0x1_0x0_0x0_,0x2B_0xA4_0x0_0x3_0x1_0x2_0x0_,0x127_0xA8_0x0_0x2_0x3_0x0_0x0_</Elements>
+						<Elements>0x7F_0xAC_0x0_0x0_0x1_0x2_0x0_,0xDB_0xB0_0x0_0x1_0x2_0x0_0x0_,0x59_0x78_0x0_0x3_0x2_0x0_0x0_,0x89_0xB8_0x0_0x3_0x1_0x0_0x0_,0x103_0xBC_0x0_0x2_0x3_0x2_0x0_,0xA7_0x60_0x0_0x1_0x2_0x0_0x0_,0xD1_0x38_0x0_0x1_0x2_0x0_0x0_,0xC1_0x50_0x0_0x2_0x1_0x0_0x0_,0x163_0xCC_0x0_0x0_0x3_0x2_0x0_,0x4F_0xD0_0x0_0x3_0x0_0x0_0x0_,0x159_0xD4_0x0_0x3_0x0_0x2_0x0_,0xAF_0xF0_0x0_0x1_0x3_0x0_0x0_,0x111_0xDC_0x0_0x1_0x2_0x2_0x0_</Elements>
+						<Elements>0xC5_0xE0_0x0_0x1_0x1_0x0_0x0_,0x3B_0xE4_0x0_0x2_0x1_0x2_0x0_,0x195_0xE8_0x0_0x0_0x3_0x0_0x0_,0x8B_0xEC_0x0_0x0_0x0_0x2_0x0_,0x97_0xF0_0x0_0x2_0x0_0x0_0x0_,0xD5_0xF4_0x0_0x1_0x0_0x2_0x0_,0x3D_0xF8_0x0_0x3_0x3_0x0_0x0_,0xC5_0x150_0x0_0x3_0x3_0x0_0x0_,0x1F_0x80_0x0_0x2_0x0_0x0_0x0_,0x1AF_0x18C_0x0_0x2_0x3_0x1_0x0_,0xAB_0x110_0x0_0x0_0x2_0x0_0x0_</Elements>
+						<Elements>0x15D_0x118_0x0_0x3_0x2_0x0_0x0_,0x21D_0x90_0x0_0x3_0x2_0x0_0x0_,0x7B_0x128_0x0_0x3_0x1_0x0_0x0_,0x71_0x130_0x0_0x2_0x2_0x0_0x0_,0x19_0x138_0x0_0x0_0x0_0x0_0x0_,0x167_0xA0_0x0_0x0_0x2_0x0_0x0_,0x197_0x148_0x0_0x1_0x2_0x0_0x0_,0x277_0x150_0x0_0x0_0x1_0x0_0x0_,0x1AB_0x158_0x0_0x3_0x0_0x0_0x0_</Elements>
+						<Elements>0x23B_0xB0_0x0_0x2_0x1_0x0_0x0_,0x59_0x258_0x0_0x0_0x3_0x0_0x0_,0x1F9_0x228_0x0_0x3_0x2_0x2_0x0_,0x1D9_0x178_0x0_0x1_0x1_0x0_0x0_,0x2F_0xC0_0x0_0x3_0x0_0x0_0x0_,0x259_0x38_0x0_0x2_0x3_0x0_0x0_,0x15F_0x140_0x0_0x1_0x1_0x0_0x0_,0xEF_0x198_0x0_0x2_0x2_0x0_0x0_</Elements>
+						<Elements>0x103_0xD0_0x0_0x1_0x3_0x0_0x0_,0x4F_0x1A8_0x0_0x1_0x2_0x0_0x0_,0x26B_0x1E0_0x0_0x2_0x3_0x0_0x0_,0x305_0x1B8_0x0_0x0_0x3_0x0_0x0_,0x39_0xE0_0x0_0x2_0x1_0x0_0x0_,0x355_0x1C8_0x0_0x1_0x3_0x0_0x0_,0x77_0x1D0_0x0_0x3_0x0_0x0_0x0_</Elements>
+						<Elements>0x2A7_0x1D8_0x0_0x1_0x2_0x0_0x0_,0x23B_0xF0_0x0_0x0_0x1_0x0_0x0_,0x3A7_0x1E8_0x0_0x0_0x2_0x0_0x0_,0x2BF_0x1F0_0x0_0x2_0x0_0x0_0x0_,0x3C7_0x2A0_0x0_0x2_0x1_0x0_0x0_,0x1F_0x80_0x0_0x1_0x0_0x0_0x0_</Elements>
+						<Elements>0x34F_0x30C_0x0_0x1_0x3_0x1_0x0_,0x2B_0x210_0x0_0x0_0x2_0x0_0x0_,0x3EB_0x324_0x0_0x2_0x1_0x3_0x0_,0x3FD_0x110_0x0_0x1_0x2_0x0_0x0_,0x40D_0x114_0x0_0x2_0x3_0x3_0x0_</Elements>
+						<Elements>0x1A1_0x230_0x0_0x1_0x3_0x0_0x0_,0x187_0x354_0x0_0x3_0x0_0x3_0x0_,0x151_0xC0_0x0_0x1_0x3_0x0_0x0_,0x293_0x36C_0x0_0x2_0x2_0x1_0x0_</Elements>
+						<Elements>0x3F3_0x378_0x0_0x0_0x0_0x2_0x0_,0x38F_0x3C0_0x0_0x2_0x1_0x0_0x0_,0x3B5_0x390_0x0_0x0_0x2_0x0_0x0_,0x485_0x39C_0x0_0x2_0x0_0x3_0x0_</Elements>
+						<Elements>0x2E9_0x1D4_0x1_0x3_0x0_0x2_0x2_,0x2C5_0x13C_0x0_0x1_0x0_0x1_0x0_,0x167_0xA0_0x0_0x2_0x3_0x0_0x0_</Elements>
+						<Elements>0x4FF_0x450_0x2_0x0_0x3_0x1_0x0_,0x4FB_0x334_0x3_0x1_0x3_0x0_0x2_,0x243_0x3E4_0x0_0x1_0x3_0x3_0x0_</Elements>
+						<Elements>0x443_0x2A0_0x0_0x2_0x2_0x0_0x0_,0x255_0x154_0x0_0x2_0x1_0x3_0x0_</Elements>
+						<Elements>0x7F_0x204_0x4_0x2_0x0_0x3_0x2_,0x469_0x15C_0x0_0x1_0x3_0x1_0x0_</Elements>
+						<Elements>0x135_0x420_0x0_0x3_0x0_0x0_0x0_,0x5B_0x42C_0x0_0x2_0x0_0x1_0x0_</Elements>
+						<Elements>0x3E9_0xF0_0x0_0x0_0x1_0x0_0x0_</Elements>
+						<Elements>0xE3_0x444_0x0_0x1_0x3_0x3_0x0_</Elements>
+						<Elements>0x143_0x170_0x0_0x0_0x3_0x0_0x0_</Elements>
+						<Elements>0x119_0x174_0x0_0x3_0x0_0x3_0x0_</Elements>
+						<Elements>0x1A5_0xBC_0x5_0x0_0x2_0x0_0x2_</Elements>
+						<Elements>0x5D_0x17C_0x0_0x0_0x2_0x1_0x0_</Elements>
+						<Elements>0x197_0x3C0_0x0_0x3_0x3_0x0_0x0_</Elements>
+					</Array>
+				</p.Data>
+				<ArrayBehavior ElementType="@aed0a9131f444b51afb7c4974aa8914f" IndexEditorWidth="42">
+					<p.DefaultElementValue>0x7_0x0_0x0_0x3_0x2_0x0_0x0_</p.DefaultElementValue>
+				</ArrayBehavior>
+				<ClusterLiteral Bounds="47 5 128 243" DataType="@aed0a9131f444b51afb7c4974aa8914f" Id="1478">
+					<ClusterBehavior AutoArrange="ArrangeVertically" />
+					<Literal Bounds="5 20 40 15" DataType="UFXP(11.0)" Id="1479" Label="1480">
+						<NumericBehavior Interpretation="Numeric" ValueFormatter="LV:G6" />
+					</Literal>
+					<Literal Bounds="5 53 40 15" DataType="UFXP(11.0)" Id="1481" Label="1482">
+						<NumericBehavior Interpretation="Numeric" ValueFormatter="LV:G6" />
+					</Literal>
+					<Literal Bounds="5 86 40 15" DataType="UFXP(3.0)" Id="1483" Label="1484">
+						<NumericBehavior Interpretation="Numeric" ValueFormatter="LV:G6" />
+					</Literal>
+					<Literal Bounds="5 119 40 15" DataType="UFXP(2.0)" Id="1485" Label="1486">
+						<NumericBehavior Interpretation="Numeric" ValueFormatter="LV:G6" />
+					</Literal>
+					<Literal Bounds="5 152 40 15" DataType="UFXP(2.0)" Id="1487" Label="1488">
+						<NumericBehavior Interpretation="Numeric" ValueFormatter="LV:G6" />
+					</Literal>
+					<Literal Bounds="5 185 40 15" DataType="UFXP(2.0)" Id="1489" Label="1490">
+						<NumericBehavior Interpretation="Numeric" ValueFormatter="LV:G6" />
+					</Literal>
+					<Literal Bounds="5 218 40 15" DataType="UFXP(2.0)" Id="1491" Label="1492">
+						<NumericBehavior Interpretation="Numeric" ValueFormatter="LV:G6" />
+					</Literal>
+					<NodeLabel AttachedTo="1479" Bounds="5 2 35 15" Id="1480" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>g(0 1)</p.Text>
+					</NodeLabel>
+					<NodeLabel AttachedTo="1481" Bounds="5 35 40 15" Id="1482" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>h(0, 1)</p.Text>
+					</NodeLabel>
+					<NodeLabel AttachedTo="1483" Bounds="5 68 105 15" Id="1484" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>i(0, 1) compressed</p.Text>
+					</NodeLabel>
+					<NodeLabel AttachedTo="1485" Bounds="5 101 50 15" Id="1486" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>gb(0, 1)</p.Text>
+					</NodeLabel>
+					<NodeLabel AttachedTo="1487" Bounds="5 134 50 15" Id="1488" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>hb(0, 1)</p.Text>
+					</NodeLabel>
+					<NodeLabel AttachedTo="1489" Bounds="5 167 45 15" Id="1490" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>ib(0, 1)</p.Text>
+					</NodeLabel>
+					<NodeLabel AttachedTo="1491" Bounds="5 200 75 15" Id="1492" xmlns="http://www.ni.com/PlatformFramework">
+						<p.Text>delta ib(0, 1)</p.Text>
+					</NodeLabel>
+				</ClusterLiteral>
+				<DockedConstantFacade UndockedSize="189 253" />
+			</ArrayLiteral>
+			<MethodCall Bounds="-90 15 50 50" Id="1540" Signature="@38459ec2af4840249d32871c237b55fe" Target="AFW::LTE::Shared::Data Channel::QPP Interleaver::Decompress Linear QPP Interleaver Constants.gcdl" xmlns="http://www.ni.com/MocCommon">
+				<p.MethodDeclaration>
+					<MethodDeclaration xmlns="http://www.ni.com/PlatformFramework">
+						<Parameter Id="L0" Desc="initial compressed QPP constants cluster (linear)" />
+						<Parameter Id="R0" Desc="initial QPP constants cluster (linear)" />
+					</MethodDeclaration>
+				</p.MethodDeclaration>
+				<Terminal DataType="@aed0a9131f444b51afb7c4974aa8914f" Direction="Input" Id="L0" xmlns="http://www.ni.com/PlatformFramework" />
+				<Terminal DataType="@4b364123a16c4a7bad1f148596eb381f" Direction="Output" Hotspot="50 5" Id="R0" xmlns="http://www.ni.com/PlatformFramework" />
+			</MethodCall>
+			<Wire Id="1541" Joints="N(1230:output)|(-115,20) N(1540:L0)|(-90,20)" xmlns="http://www.ni.com/PlatformFramework" />
+			<DataAccessor Bounds="705 -80 40 15" DataItem="1542" Id="1544" Label="1546" xmlns="http://www.ni.com/MocCommon">
+				<Terminal DataType="UFXP(2.0)" Direction="Input" Hotspot="3 5" Id="Value" xmlns="http://www.ni.com/PlatformFramework" />
+			</DataAccessor>
+			<NodeLabel AttachedTo="570" Bounds="750 490 64 16" Id="855" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>output valid</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="571" Bounds="-466 -75 81 16" Id="856" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>code block size</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="572" Bounds="-421 490 36 16" Id="857" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>enable</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="575" Bounds="750 5 71 16" Id="860" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>write address</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="576" Bounds="-411 460 26 16" Id="861" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>reset</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="626" Bounds="-240 -90 0 0" Id="864" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>n</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="1495" Bounds="-392 6 0 0" Id="1496" Visible="False" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>initial QPP constants cluster (linear)</p.Text>
+			</NodeLabel>
+			<NodeLabel AttachedTo="1544" Bounds="750 -80 78 16" Id="1546" xmlns="http://www.ni.com/PlatformFramework">
+				<p.Text>memory select</p.Text>
+			</NodeLabel>
+		</BlockDiagram>
+		<NativeFrontPanel AllowMaximize="[bool]False" EnforceMaximumSize="[bool]True" Height="[float]1600" Id="13" Left="[float]0" MaxHeight="[float]1600" MaxWidth="[float]2000" PanelSizeMode="Fixed" Top="[float]0" Width="[float]2000" WindowTitleOption="[WindowTitleOption]None">
+			<NumericText BaseName="[string]Numeric" Height="[float]24" Id="880" Interval="[Number]0x1" Label="[UIModel]881" Left="[float]185" Maximum="[Number]0x1FFF" Minimum="[Number]0x0" TabIndex="[int]0" Top="[float]59" Value="{DataItemBinding Id=870}" ValueFormatter="[string]LVFXP:UFXP_13_0&gt;&gt;Decimal, Uppercase, Signed:" ValueType="[Type]UFXP(13.0)" Width="[float]69" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Id="881" LabelOwner="[UIModel]880" Left="[float]185" Text="[string]code block size" Top="[float]39" xmlns="http://www.ni.com/PanelCommon" />
+			<LED BaseName="[string]Square LED" FalseContent="[string]Off" Height="[float]30" Id="882" IsReadOnly="[bool]False" Label="[UIModel]883" Left="[float]112" Shape="[LEDShape]Square" TabIndex="[int]1" Top="[float]59" TrueContent="[string]On" Value="{DataItemBinding Id=871}" Width="[float]30" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Id="883" LabelOwner="[UIModel]882" Left="[float]112" Text="[string]enable" Top="[float]39" xmlns="http://www.ni.com/PanelCommon" />
+			<LED BaseName="[string]Square LED" FalseContent="[string]Off" Height="[float]30" Id="892" IsReadOnly="[bool]False" Label="[UIModel]893" Left="[float]112" Shape="[LEDShape]Square" TabIndex="[int]2" Top="[float]121" TrueContent="[string]On" Value="{DataItemBinding Id=875}" Width="[float]30" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Id="893" LabelOwner="[UIModel]892" Left="[float]112" Text="[string]reset" Top="[float]101" xmlns="http://www.ni.com/PanelCommon" />
+			<NumericText BaseName="[string]Numeric" Height="[float]24" Id="890" IsReadOnly="[bool]True" Label="[UIModel]891" Left="[float]387" Name="[string]write address" TabIndex="[int]3" Top="[float]59" Value="{DataItemBinding Id=874}" ValueType="[Type]UInt16" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Id="891" LabelOwner="[UIModel]890" Left="[float]387" Text="[string]write address" Top="[float]39" xmlns="http://www.ni.com/PanelCommon" />
+			<NumericText BaseName="[string]Numeric" Height="[float]24" Id="1545" Interval="[Number]0x1" IsReadOnly="[bool]True" Label="[UIModel]1221" Left="[float]387" Maximum="[Number]0x3" Minimum="[Number]0x0" Name="[string]element select" TabIndex="[int]4" Top="[float]121" Value="{DataItemBinding Id=1542}" ValueFormatter="[string]LVFXP:UFXP_2_0&gt;&gt;Decimal, Uppercase, Signed:" ValueType="[Type]UFXP(2.0)" Width="[float]54" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Id="1221" LabelOwner="[UIModel]1545" Left="[float]387" Text="[string]memory select" Top="[float]101" xmlns="http://www.ni.com/PanelCommon" />
+			<LED BaseName="[string]Square LED" FalseContent="[string]Off" Height="[float]30" Id="878" IsReadOnly="[bool]True" Label="[UIModel]879" Left="[float]387" Shape="[LEDShape]Square" TabIndex="[int]5" Top="[float]183" TrueContent="[string]On" Value="{DataItemBinding Id=869}" Width="[float]30" xmlns="http://www.ni.com/Controls.LabVIEW.Design" />
+			<Label Id="879" LabelOwner="[UIModel]878" Left="[float]387" Text="[string]output valid" Top="[float]163" xmlns="http://www.ni.com/PanelCommon" />
+			<PanelExecutionWindow Id="1572" />
+		</NativeFrontPanel>
+		<DataItem AdaptToDiagramType="True" CallDirection="Output" CallIndex="2" DataType="Boolean" Id="869" Name="output valid" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>False</p.DefaultValue>
+			<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">&lt;p&gt;Valid flag for all outputs.&lt;/p&gt;</p.UserDescription>
+		</DataItem>
+		<DataItem CallDirection="Input" CallIndex="0" DataType="UFXP(13.0)" Id="870" Name="code block size" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>0x0</p.DefaultValue>
+			<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">&lt;p&gt;Code block size (K).&lt;/p&gt;</p.UserDescription>
+		</DataItem>
+		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="1" DataType="Boolean" Id="871" Name="enable" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>False</p.DefaultValue>
+			<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">&lt;p&gt;A Boolean flag to get the next address.&lt;/p&gt;</p.UserDescription>
+		</DataItem>
+		<DataItem CallDirection="Output" CallIndex="1" DataType="UInt16" Id="874" Name="write address" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>0</p.DefaultValue>
+			<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">&lt;p&gt;Address to use for all subsegment decoders.&lt;/p&gt;</p.UserDescription>
+		</DataItem>
+		<DataItem AdaptToDiagramType="True" CallDirection="Input" CallIndex="2" DataType="Boolean" Id="875" Name="reset" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>False</p.DefaultValue>
+			<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">&lt;p&gt;Resets the module for a new code block based on code block size and operation mode.&lt;/p&gt;&lt;p&gt;Must be asserted 3 clock cycles before the first enable flag.&lt;/p&gt;</p.UserDescription>
+		</DataItem>
+		<DataItem CallDirection="Output" CallIndex="0" DataType="UFXP(2.0)" Id="1542" Name="memory select" xmlns="http://www.ni.com/MocCommon">
+			<p.DefaultValue>0x0</p.DefaultValue>
+			<p.UserDescription xmlns="http://www.ni.com/PlatformFramework">&lt;p&gt;Selection of the memory to use for the current value.&lt;/p&gt;</p.UserDescription>
+		</DataItem>
+	</VirtualInstrument>
+	<DataTypeReferenceTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.TypeReference TypeId="09abb538f4de41a1a42f6f86cde0b851">
+			<Attributed AttributedType="@c640e6ae90864cc592adc5354bb76138">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="81fed6787ae6459fa67eee99505596af">
+			<Attributed AttributedType="@4b17abee66d54f65acd4b13bf8d9c1ad">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]40" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]40" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="4b364123a16c4a7bad1f148596eb381f">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="f(0+n*1,1)" DataType="UFXP(11.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="g(0+n*1,1)" DataType="UFXP(11.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="h(0+n*1,1)" DataType="UFXP(11.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="i(0,1)" DataType="UFXP(11.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="fb(0+n*1,1)" DataType="UFXP(2.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="gb(0+n*1,1)" DataType="UFXP(2.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="hb(0+n*1,1)" DataType="UFXP(2.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="ib(0+n*1,1)" DataType="UFXP(2.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="delta ib(0,1)" DataType="UFXP(2.0)" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="8039cb85cbd74fb2b3d2d752293d3857">
+			<VariableArray DereferenceType="@aed0a9131f444b51afb7c4974aa8914f" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="aed0a9131f444b51afb7c4974aa8914f">
+			<Composite Id="1" Name="" Cluster="" GenericTypeDefinition="Void" BaseType="Void">
+				<Members>
+					<Field FieldAccessPolicy="ReadWrite" Name="g(0 1)" DataType="UFXP(11.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="h(0, 1)" DataType="UFXP(11.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="i(0, 1) compressed" DataType="UFXP(3.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="gb(0, 1)" DataType="UFXP(2.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="hb(0, 1)" DataType="UFXP(2.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="ib(0, 1)" DataType="UFXP(2.0)" />
+					<Field FieldAccessPolicy="ReadWrite" Name="delta ib(0, 1)" DataType="UFXP(2.0)" />
+				</Members>
+			</Composite>
+		</p.TypeReference>
+		<p.TypeReference TypeId="38459ec2af4840249d32871c237b55fe">
+			<Attributed AttributedType="@09e81c97c98242b3ad43c8ad7c3cdb0b">
+				<AttributeValues>
+					<AttributeValue Name="NI.ConnectorPaneHeight" Value="[int]50" />
+					<AttributeValue Name="NI.ConnectorPaneWidth" Value="[int]50" />
+				</AttributeValues>
+			</Attributed>
+		</p.TypeReference>
+		<p.TypeReference TypeId="c640e6ae90864cc592adc5354bb76138">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Get Code Block Size Table Index.gcdl" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@f48e5bb5d4894a27bb73f2c8b9cb862e">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]code block size" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@aa64a250de8a427e8e0d0d696426f7a5">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]code block size index" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="4b17abee66d54f65acd4b13bf8d9c1ad">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="QPP Interleaver Calculation Core.gcdl" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@75e4f3eab9b14ebaa2d2b498b4944cf3">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]f(c, d)" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@ff13e9e9349248e69c2c3c239afe67eb">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]fb(c, d)" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@e9a40c9e446942748f061e45ddcff698">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]g(c, d)" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@dcfb4064e5a2407c876d5ad12c2d0876">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]gb(c, d)" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@17959d1c778a42ef9f0080481123418d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]S" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@af3a5fae9c474975af56e6972fccd05c">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]f(c+d, d)" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@a8e014bc35e84b8db0d0b65375e813f9">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]fb(c+d, d)" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="09e81c97c98242b3ad43c8ad7c3cdb0b">
+			<Function Id="1" IsStatic="True" IsConstructor="False" Name="Decompress Linear QPP Interleaver Constants.gcdl" ReturnType="Void" GenericTypeDefinition="Void">
+				<Parameters>
+					<Attributed AttributedType="@5f370e771f6743cebeae9247b506822f">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]initial compressed QPP constants cluster (linear)" />
+						</AttributeValues>
+					</Attributed>
+					<Attributed AttributedType="@5874de4dda254c6caa07f1a03a3a7d7d">
+						<AttributeValues>
+							<AttributeValue Name="NI.UserDefinedName" Value="[string]initial QPP constants cluster (linear)" />
+						</AttributeValues>
+					</Attributed>
+				</Parameters>
+			</Function>
+		</p.TypeReference>
+		<p.TypeReference TypeId="f48e5bb5d4894a27bb73f2c8b9cb862e">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="UFXP(13.0)" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="aa64a250de8a427e8e0d0d696426f7a5">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="UInt8" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="75e4f3eab9b14ebaa2d2b498b4944cf3">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="UFXP(11.0)" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="ff13e9e9349248e69c2c3c239afe67eb">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L1" DataType="UFXP(2.0)" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="e9a40c9e446942748f061e45ddcff698">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L2" DataType="UFXP(11.0)" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="dcfb4064e5a2407c876d5ad12c2d0876">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="L3" DataType="UFXP(2.0)" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="17959d1c778a42ef9f0080481123418d">
+			<Parameter InputParameterPassingRule="Required" OutputParameterPassingRule="NotAllowed" Name="T1" DataType="UFXP(11.0)" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="af3a5fae9c474975af56e6972fccd05c">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="UFXP(11.0)" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="a8e014bc35e84b8db0d0b65375e813f9">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R1" DataType="UFXP(2.0)" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="5f370e771f6743cebeae9247b506822f">
+			<Parameter InputParameterPassingRule="Recommended" OutputParameterPassingRule="NotAllowed" Name="L0" DataType="@aed0a9131f444b51afb7c4974aa8914f" />
+		</p.TypeReference>
+		<p.TypeReference TypeId="5874de4dda254c6caa07f1a03a3a7d7d">
+			<Parameter InputParameterPassingRule="NotAllowed" OutputParameterPassingRule="Recommended" Name="R0" DataType="@4b364123a16c4a7bad1f148596eb381f" />
+		</p.TypeReference>
+	</DataTypeReferenceTable>
+	<IconTable xmlns="http://www.ni.com/PlatformFramework">
+		<p.IconModel Target="AFW::LTE::Shared::Data Channel::QPP Interleaver::Get Code Block Size Table Index.gcdl">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<Path Data="[PathGeometry]M 36,40 L 4,40 C 1.79100001,40 0,38.2089996 0,36 L 0,4 C 0,1.79100001 1.79100001,0 4,0 L 36,0 C 38.2089996,0 40,1.79100001 40,4 L 40,36 C 40,38.2089996 38.2089996,40 36,40 Z" Fill="[SMSolidColorBrush]#ff727272" Height="[float]40" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+							<Path Data="[PathGeometry]M 36,39 L 4,39 C 2.34299994,39 1,37.6570015 1,36 L 1,4 C 1,2.34299994 2.34299994,1 4,1 L 36,1 C 37.6570015,1 39,2.34299994 39,4 L 39,36 C 39,37.6570015 37.6570015,39 36,39 Z" Fill="[SMSolidColorBrush]#fff2f2f2" Height="[float]40" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+							<Path Data="[PathGeometry]M 4,2 L 36,2 C 37.1049995,2 38,2.89499998 38,4 L 38,36 C 38,37.1049995 37.1049995,38 36,38 L 4,38 C 2.89499998,38 2,37.1049995 2,36 L 2,4 C 2,2.89499998 2.89499998,2 4,2 Z" Fill="[SMSolidColorBrush]#ffe5e5e5" Height="[float]40" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+							<Path Data="[PathGeometry]M 36,2 L 4,2 C 2.89499998,2 2,2.89499998 2,4 L 2,12 L 38,12 L 38,4 C 38,2.89499998 37.1049995,2 36,2 Z M 16.9300003,10 L 12.7349997,10 L 12.7349997,4.18400002 L 14.2349997,4.18400002 L 14.2349997,8.875 L 16.9300003,8.875 L 16.9300003,10 Z M 22.3829994,5.30900002 L 20.5669994,5.30900002 L 20.5669994,10 L 19.0669994,10 L 19.0669994,5.30900002 L 17.25,5.30900002 L 17.25,4.18400002 L 22.3829994,4.18400002 L 22.3829994,5.30900002 Z M 27.4920006,5.30900002 L 24.7770004,5.30900002 L 24.7770004,6.3130002 L 27.2970009,6.3130002 L 27.2970009,7.4380002 L 24.7770004,7.4380002 L 24.7770004,8.8760004 L 27.4920006,8.8760004 L 27.4920006,10 L 23.2849998,10 L 23.2849998,4.18400002 L 27.4920006,4.18400002 L 27.4920006,5.30900002 Z" Fill="[SMSolidColorBrush]#ff6205c4" Height="[float]40" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+							<Text Height="[float]27" Left="[float]1" SizeMode="[TextModelSizeMode]Fixed" Text="[string]GET CODE&#xD;&#xA;BLOCK SIZE&#xD;&#xA;TBL IDX" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]12" Width="[float]38">
+								<FontSetting FontSize="5" />
+							</Text>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="AFW::LTE::Shared::Data Channel::QPP Interleaver::QPP Interleaver Calculation Core.gcdl">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 40 40">
+						<IconPanel Height="[float]40" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]40">
+							<Path Data="[PathGeometry]M 36,40 L 4,40 C 1.79100001,40 0,38.2089996 0,36 L 0,4 C 0,1.79100001 1.79100001,0 4,0 L 36,0 C 38.2089996,0 40,1.79100001 40,4 L 40,36 C 40,38.2089996 38.2089996,40 36,40 Z" Fill="[SMSolidColorBrush]#ff727272" Height="[float]40" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+							<Path Data="[PathGeometry]M 36,39 L 4,39 C 2.34299994,39 1,37.6570015 1,36 L 1,4 C 1,2.34299994 2.34299994,1 4,1 L 36,1 C 37.6570015,1 39,2.34299994 39,4 L 39,36 C 39,37.6570015 37.6570015,39 36,39 Z" Fill="[SMSolidColorBrush]#fff2f2f2" Height="[float]40" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+							<Path Data="[PathGeometry]M 4,2 L 36,2 C 37.1049995,2 38,2.89499998 38,4 L 38,36 C 38,37.1049995 37.1049995,38 36,38 L 4,38 C 2.89499998,38 2,37.1049995 2,36 L 2,4 C 2,2.89499998 2.89499998,2 4,2 Z" Fill="[SMSolidColorBrush]#ffe5e5e5" Height="[float]40" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+							<Path Data="[PathGeometry]M 36,2 L 4,2 C 2.89499998,2 2,2.89499998 2,4 L 2,12 L 38,12 L 38,4 C 38,2.89499998 37.1049995,2 36,2 Z M 16.9300003,10 L 12.7349997,10 L 12.7349997,4.18400002 L 14.2349997,4.18400002 L 14.2349997,8.875 L 16.9300003,8.875 L 16.9300003,10 Z M 22.3829994,5.30900002 L 20.5669994,5.30900002 L 20.5669994,10 L 19.0669994,10 L 19.0669994,5.30900002 L 17.25,5.30900002 L 17.25,4.18400002 L 22.3829994,4.18400002 L 22.3829994,5.30900002 Z M 27.4920006,5.30900002 L 24.7770004,5.30900002 L 24.7770004,6.3130002 L 27.2970009,6.3130002 L 27.2970009,7.4380002 L 24.7770004,7.4380002 L 24.7770004,8.8760004 L 27.4920006,8.8760004 L 27.4920006,10 L 23.2849998,10 L 23.2849998,4.18400002 L 27.4920006,4.18400002 L 27.4920006,5.30900002 Z" Fill="[SMSolidColorBrush]#ff6205c4" Height="[float]40" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]40" />
+							<Text Height="[float]27" Left="[float]1" SizeMode="[TextModelSizeMode]Fixed" Text="[string]QPP INTRLV&#xD;&#xA;CALC CORE" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]12" Width="[float]38">
+								<FontSetting FontSize="5" />
+							</Text>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+		<p.IconModel Target="AFW::LTE::Shared::Data Channel::QPP Interleaver::Decompress Linear QPP Interleaver Constants.gcdl">
+			<MergeScript>
+				<MergeItem Path="." IsPrimary="True">
+					<Icon ListViewIconCrop="0 0 50 50">
+						<IconPanel Height="[float]50" Left="[float]0" PanelSizeMode="Resize" Top="[float]0" Width="[float]50">
+							<Path Data="[PathGeometry]M 46,50 L 4,50 C 1.79100001,50 0,48.2089996 0,46 L 0,4 C 0,1.79100001 1.79100001,0 4,0 L 46,0 C 48.2089996,0 50,1.79100001 50,4 L 50,46 C 50,48.2089996 48.2089996,50 46,50 Z" Fill="[SMSolidColorBrush]#ff727272" Height="[float]50" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]50" />
+							<Path Data="[PathGeometry]M 46,49 L 4,49 C 2.34299994,49 1,47.6570015 1,46 L 1,4 C 1,2.34299994 2.34299994,1 4,1 L 46,1 C 47.6570015,1 49,2.34299994 49,4 L 49,46 C 49,47.6570015 47.6570015,49 46,49 Z" Fill="[SMSolidColorBrush]#fff2f2f2" Height="[float]50" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]50" />
+							<Path Data="[PathGeometry]M 4,2 L 46,2 C 47.1049995,2 48,2.89499998 48,4 L 48,46 C 48,47.1049995 47.1049995,48 46,48 L 4,48 C 2.89499998,48 2,47.1049995 2,46 L 2,4 C 2,2.89499998 2.89499998,2 4,2 Z" Fill="[SMSolidColorBrush]#ffe5e5e5" Height="[float]50" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]50" />
+							<Path Data="[PathGeometry]M 46,2 L 4,2 C 2.89499998,2 2,2.89499998 2,4 L 2,12 L 48,12 L 48,4 C 48,2.89499998 47.1049995,2 46,2 Z M 21.9300003,10 L 17.7350006,10 L 17.7350006,4.18400002 L 19.2350006,4.18400002 L 19.2350006,8.875 L 21.9300003,8.875 L 21.9300003,10 Z M 27.3829994,5.30900002 L 25.5669994,5.30900002 L 25.5669994,10 L 24.0669994,10 L 24.0669994,5.30900002 L 22.25,5.30900002 L 22.25,4.18400002 L 27.3829994,4.18400002 L 27.3829994,5.30900002 Z M 32.4920006,5.30900002 L 29.7770004,5.30900002 L 29.7770004,6.3130002 L 32.2970009,6.3130002 L 32.2970009,7.4380002 L 29.7770004,7.4380002 L 29.7770004,8.8760004 L 32.4920006,8.8760004 L 32.4920006,10 L 28.2849998,10 L 28.2849998,4.18400002 L 32.4920006,4.18400002 L 32.4920006,5.30900002 Z" Fill="[SMSolidColorBrush]#ff6205c4" Height="[float]50" Left="[float]0" MinHeight="[float]1" MinWidth="[float]1" Top="[float]0" Width="[float]50" />
+							<Text Height="[float]37" Left="[float]1" SizeMode="[TextModelSizeMode]Fixed" Text="[string]DECOMP LIN&#xD;&#xA;QPP INTLV&#xD;&#xA;CON" TextAlignment="[TextAlignment]Center" TextWrapping="[TextWrapping]Wrap" Top="[float]12" Width="[float]48">
+								<FontSetting FontSize="6" />
+							</Text>
+						</IconPanel>
+					</Icon>
+				</MergeItem>
+			</MergeScript>
+		</p.IconModel>
+	</IconTable>
+</SourceFile>
