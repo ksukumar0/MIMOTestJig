@@ -1,4 +1,5 @@
 addpath('../TDMSReader/v2p5');
+addpath('../TDMSReader/v2p5/tdmsSubfunctions');
 
 enb.NDLRB = 100;
 enb.NCellID = 0;
@@ -34,8 +35,8 @@ end
 filename = 'C:\Users\ge69mog\Downloads\test.tdms';
 str = TDMS_getStruct(filename);
 
-H11 = str.RxCRSData.H11_Amp.data.*exp(j*str.RxCRSData.H11_Phase.data);
-H22 = str.RxCRSData.H22_Amplitude.data.*exp(j*str.RxCRSData.H22_Phase.data);
+H11 = str.RxCRSData.H11_Real.data + j*str.RxCRSData.H11_Imag.data;
+H22 = str.RxCRSData.H22_Real.data + j*str.RxCRSData.H22_Imag.data;
 SubFrameIndex = uint8(str.RxCRSData.Subframe_Index_0.data);
 
 H11 = reshape(H11,200,[]);
