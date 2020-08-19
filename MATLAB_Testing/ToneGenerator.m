@@ -45,9 +45,18 @@ output = output(1:samplesCutoff,:);
 for i=1:size(F0,2)
     subplot(4,2,2*(i-1)+1);
     plot(1:samplesCutoff,real(input(:,i)),'r',1:samplesCutoff,imag(input(:,i)),'b');
+    xlabel('Samples')
+    ylabel('Amplitude')
+    title('Input Tone')
+    legend('I Signal', 'Q Signal', 'location', 'Northeast')
 
     subplot(4,2,2*i);
     plot(1:samplesCutoff,real(output(:,i)),'m',1:samplesCutoff,imag(output(:,i)),'g');
+    xlabel('Samples')
+    ylabel('Amplitude')
+    title('Output Tone')
+    legend('I Signal', 'Q Signal', 'location', 'Northeast')
+    
 end
 
 
