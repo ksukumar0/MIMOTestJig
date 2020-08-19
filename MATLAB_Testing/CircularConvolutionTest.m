@@ -4,7 +4,7 @@ N = 20;
 xn = N;
 hn = N + 5;
 x = randi([0 1],1,xn);
-h = randi([0 1],1,hn);
+h = rand(1,hn);
 
 y = conv(h,x);
 
@@ -30,6 +30,6 @@ plot(flip(h));
 ylabel(sp3, 'h[-n]');
 
 sp4 = subplot(2,2,4);
-plot(y);
+plot(1:size(y,2),y,1:size(newy,1),newy);
 ylabel(sp4, 'y[n]');
 
