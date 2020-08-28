@@ -18,7 +18,7 @@ F3 = Fchosen;
 
 F0 = [F0 F1 F2 F3];
 inputPhaseOffset = [0 0 0 0];
-outputPhaseOffset = [0 pi/3 2*pi/3 pi];
+outputPhaseOffset = [pi/4 pi/3 2*pi/3 pi];
 
 t = linspace(0,double(NoOfSamples-1)/Fs,NoOfSamples);
 input = zeros(size(F0,2),NoOfSamples);
@@ -42,19 +42,22 @@ output = transpose(output);
 input = input(1:samplesCutoff,:);
 output = output(1:samplesCutoff,:);
 
+USRPNos = [1 1 2 2];
+RFChNos = [1 2 1 2];
+
 for i=1:size(F0,2)
     subplot(4,2,2*(i-1)+1);
     plot(1:samplesCutoff,real(input(:,i)),'r',1:samplesCutoff,imag(input(:,i)),'b');
     xlabel('Samples')
     ylabel('Amplitude')
-    title('Input Tone')
+    title(sprintf('Input Tone USRP %d RF %d/TX1',USRPNos(i), RFChNos(i)));
     legend('I Signal', 'Q Signal', 'location', 'Northeast')
 
     subplot(4,2,2*i);
     plot(1:samplesCutoff,real(output(:,i)),'m',1:samplesCutoff,imag(output(:,i)),'g');
     xlabel('Samples')
     ylabel('Amplitude')
-    title('Output Tone')
+    title(sprintf('Output Tone USRP %d RF %d/RX2',USRPNos(i),RFChNos(i)));
     legend('I Signal', 'Q Signal', 'location', 'Northeast')
     
 end
